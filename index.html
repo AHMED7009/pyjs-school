@@ -18,11 +18,8 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 p-4 glass flex justify-between items-center">
         <div class="flex items-center gap-6">
+            <button onclick="toggleSideMenu()" class="text-2xl text-accent hover:text-white transition"><i class="fas fa-bars"></i></button>
             <div class="text-2xl font-black cursor-pointer" onclick="showSection('landing')"><span class="text-accent text-3xl">PY</span>JS</div>
-            <div id="navLinks" class="hidden md:flex gap-4">
-                <button onclick="showSection('dashboard')" class="hover:text-accent transition">الرئيسية</button>
-                <button onclick="showSection('about')" class="hover:text-accent transition">حول الموقع</button>
-            </div>
         </div>
         <div id="userStatus" class="hidden items-center gap-4">
             <div class="flex flex-col items-end">
@@ -32,6 +29,14 @@
             <button onclick="logout()" class="text-red-400 text-xs bg-red-400/10 px-2 py-1 rounded">خروج</button>
         </div>
     </nav>
+
+    <!-- Side Menu (القائمة الجانبية) -->
+    <aside id="sideMenu" class="fixed top-0 right-0 h-full w-64 glass z-40 transform translate-x-full transition-transform duration-300 pt-28 px-6 border-l border-white/10 shadow-2xl">
+        <div class="flex flex-col gap-6">
+            <button onclick="showSection('dashboard'); toggleSideMenu()" class="text-right text-lg font-bold hover:text-accent transition border-b border-white/10 pb-4">الرئيسية</button>
+            <button onclick="showSection('about'); toggleSideMenu()" class="text-right text-lg font-bold hover:text-accent transition border-b border-white/10 pb-4">حول الموقع</button>
+        </div>
+    </aside>
 
     <main class="pt-24 px-4 container mx-auto min-h-screen">
 
@@ -169,5 +174,12 @@
 
     <!-- ربط ملف JavaScript الخارجي -->
     <script src="script.js"></script>
+    <script>
+        // دالة لفتح وإغلاق القائمة الجانبية
+        function toggleSideMenu() {
+            const menu = document.getElementById('sideMenu');
+            menu.classList.toggle('translate-x-full');
+        }
+    </script>
 </body>
 </html>
