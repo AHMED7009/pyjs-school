@@ -1,0 +1,72 @@
+:root {
+    --primary: #0f172a;
+    --accent: #fbbf24;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--primary);
+    color: #f8fafc;
+    transition: 0.3s;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hidden-section {
+    display: none !important;
+}
+
+.active-section {
+    display: flex;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.code-area {
+    background: #011627;
+    font-family: monospace;
+    direction: ltr;
+    text-align: left;
+    border-radius: 1rem;
+    border-left: 4px solid var(--accent);
+}
+
+.output-area {
+    background: #1e293b;
+    font-family: monospace;
+    direction: ltr;
+    text-align: left;
+    border-radius: 1rem;
+    border-left: 4px solid #10b981;
+}
+
+.btn-choice {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+.btn-choice:hover {
+    background: var(--accent);
+    color: #000;
+    transform: translateX(-5px);
+}
